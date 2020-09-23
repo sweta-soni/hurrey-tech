@@ -1,0 +1,22 @@
+{
+  "name": "angular-seed",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A starter project for AngularJS",
+  "repository": "https://github.com/angular/angular-seed",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1 ./"
+  },
+  "dependencies": {
+    "angular-sanitize": "^1.8.0",
+    "angular-translate": "^2.18.3",
+    "angular-translate-interpolation-messageformat": "^2.18.3",
+    "angular-translate-loader-partial": "^2.18.3",
+    "messageformat": "^2.3.0",
+    "ngx-google-places-autocomplete": "^2.0.4"
+  }
+}

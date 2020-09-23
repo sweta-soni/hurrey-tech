@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Website</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Angular Files -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <link rel="stylesheet" href="css/angular-toastr.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-toastr.tpls.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.18.3/angular-translate.min.js" integrity="sha512-9VsA8RGIdk1o2LBnxVnpojOxXpN8JhjkqlyOJoCDgY8zEYIVaM/b+YCcuYGn7Wg/RVE9oKhU7kdNHx+IsbwANw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.18.3/angular-translate-loader-url.min.js" integrity="sha512-rZVbPzFUc/z9qj7ZQQrHsjfw9KPSDu3k0uLwf6MQzSikSgfPsD6bQAkRctJ/CdjgFVnDiCEKmh2JP9oQTz79qw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.18.3/angular-translate-loader-static-files.min.js" integrity="sha512-AuqZakc0izA19AdZ7eZ0iH9vwOqROIlDE9udFcrSHMaR5PoHTpOsYvamaX6FoTwWRvmKp3TZOXCC2vtX2mB6vg==" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+          margin: 0;
+          font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+          margin: 0;
+          padding: 0;
+          width: 200px;
+          background-color: #f1f1f1;
+          position: fixed;
+          height: 100%;
+          overflow: auto;
+        }
+
+        .sidebar a {
+          display: block;
+          color: black;
+          padding: 16px;
+          text-decoration: none;
+        }
+
+        .sidebar a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+          background-color: #555;
+          color: white;
+        }
+
+        div.content {
+          margin-left: 200px;
+          padding: 1px 16px;
+          height: 1000px;
+        }
+
+        @media screen and (max-width: 700px) {
+          .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+          }
+          .sidebar a {float: left;}
+          div.content {margin-left: 0;}
+        }
+
+        @media screen and (max-width: 400px) {
+          .sidebar a {
+            text-align: center;
+            float: none;
+          }
+        }
+    </style>
+</head>
+
+<body ng-app="hurreyApp">
+
+    <div class="container-fluid grey lighten-4">
+        <div class="row">
+            <div class="col-md-10 p-2 ">
+                <h4><strong>Hurrey</strong></h4>
+            </div>
+            <div class="col-md-2 p-2 ">
+                <label for="languages">{{'TRANSLATE'|translate}}</label>
+                <select name="languages" id="languages" ng-controller='MyCtrl' ng-model="language" ng-change="changeLanguage(language)">
+                    <option value="EN" selected>{{'EN'|translate}}</option>
+                    <option value="HINDI">{{'HINDI'|translate}}</option>
+                    <option value="PUNJABI">{{'PUNJABI'|translate}}</option>
+                    <option value="KANNADA">{{'KANNADA'|translate}}</option>
+                    <option value="TELUGU">{{'TELUGU'|translate}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a id="id1" class="active" onclick="changeclass()" href="#">{{'INSTITUTION'|translate}}</a>
+        <a id="id2" onclick="changeclass1()" href="#!/show_batch">{{'BATCH'|translate}}</a>
+    </div>
+
+    <div class="container-fluid content">
+        <div ng-view>
+
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Firebase Javascript -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.min.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyANoUEtMFX_saYJqZHxsbTmpy05_28CC-I",
+    authDomain: "hurrey-116ca.firebaseapp.com",
+    databaseURL: "https://hurrey-116ca.firebaseio.com",
+    projectId: "hurrey-116ca",
+    storageBucket: "hurrey-116ca.appspot.com",
+    messagingSenderId: "356798325819",
+    appId: "1:356798325819:web:030917ae334607ce56681e",
+    measurementId: "G-JMMJFXPRFS"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+  function changeclass() {
+    var x = document.getElementById("id1");
+    var y = document.getElementById("id2");
+
+    x.className = 'active';
+    y.className = '';
+  }
+</script>
+
+<script>
+  function changeclass1() {
+    var x = document.getElementById("id1");
+    var y = document.getElementById("id2");
+
+    y.className = 'active';
+    x.className = '';
+  }
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 p-2 ">
+        <h4><strong>{{'INSTITUTE_DETAILS'|translate}}</strong></h4>
+    </div>
+    <div class="p-2 col-md-4 text-center">
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!/show_institute" class="text-muted">{{'SHOW'|translate}}</a></li>
+            <li class="list-inline-item"><a href="#!/add_institute" class="text-muted">{{'ADD_INSTITUTE'|translate}}</a></li>
+        </ul>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 grey lighten-4 p-5 mt-5">
+          <h3 class="text-center">{{'EDIT_INSTITUTE_DATA'|translate}}</h3>
+          <div class="md-form mb-0">
+              <input type="text" id="name" class="form-control" ng-model="institute.name">
+              <label class="active" for="name">{{'NAME'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+              <input type="text" id="city" class="form-control" ng-model="institute.address.city">
+              <label class="active" for="dept">{{'CITY'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+              <input type="text" id="district" class="form-control" ng-model="institute.address.district">
+              <label class="active" for="sem">{{'DISTRICT'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+            <input type="text" id="country" class="form-control" ng-model="institute.address.country">
+            <label class="active" for="sem">{{'COUNTRY'|translate}}</label>
+          </div>
+
+          <button class="btn btn-primary" ng-click="edit(institute.$id)">{{'UPDATE'|translate}}</button>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+</div>

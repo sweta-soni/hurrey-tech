@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 p-2 ">
+        <h4><strong>{{'INSTITUTE_DETAILS'|translate}}</strong></h4>
+    </div>
+    <div class="p-2 col-md-4 text-center">
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!/show_institute" class="text-muted">{{'SHOW'|translate}}</a></li>
+            <li class="list-inline-item"><a href="#!/add_institute" class="text-muted">{{'ADD_INSTITUTE'|translate}}</a></li>
+        </ul>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                  <div class="md-form">
+                      <input type="text" id="inputEx" class="form-control" ng-model="search">
+                      <label for="inputEx">{{'SEARCH'|translate}}</label>
+                  </div>
+              </div>
+              <div class="col-md-2"></div>
+          </div>
+          <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr>
+
+                          <th>{{'NAME'|translate}}</th>
+                          <th>{{'CITY'|translate}}</th>
+                          <th>{{'DISTRICT'|translate}}</th>
+                          <th>{{'COUNTRY'|translate}}</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="x in records | filter : search">
+                          <td>{{x.name}}</td>
+                          <td>{{x.address.city}}</td>
+                          <td>{{x.address.district}}</td>
+                          <td>{{x.address.country}}</td>
+                          <td><a href="#!/edit_institute/{{ x.$id }}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> </td>
+                          <td><a href="" ng-click="removeData(x)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
+                          <td><img src="https://image.maps.ls.hereapi.com/mia/1.6/mapview?c={{x.address.latitude}}%2C{{x.address.longitude}}&z=14&apiKey=EBWhCmeuGY4CJ0hmZyjsmT8ThKDcD1GzPdt9treX4bA&w=300&h=300"></td>
+
+
+                      </tr>
+
+
+                  </tbody>
+
+              </table>
+
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+</div>

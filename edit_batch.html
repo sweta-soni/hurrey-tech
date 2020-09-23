@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 p-2 ">
+        <h4><strong>{{'BATCH_DETAILS'|translate}}</strong></h4>
+    </div>
+    <div class="p-2 col-md-4 text-center">
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!/show_batch" class="text-muted">{{'SHOW'|translate}}</a></li>
+            <li class="list-inline-item"><a href="#!/add_batch" class="text-muted">{{'ADD_BATCH'|translate}}</a></li>
+        </ul>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 grey lighten-4 p-5 mt-5">
+          <h3 class="text-center">{{'EDIT_BATCH_DATA'|translate}}</h3>
+          <div class="md-form mb-0">
+              <input type="text" id="name" class="form-control" ng-model="batch.name">
+              <label for="name" class="active">{{'NAME'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+            <input type="text" id="class" class="form-control" ng-model="batch.class">
+            <label for="class" class="active">{{'CLASS'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+              <input type="text" id="subject" class="form-control" ng-model="batch.subject">
+              <label for="subject" class="active">{{'SUBJECT'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+            <input type="number" id="fee" class="form-control" ng-model="batch.fee">
+            <label for="fee" class="active">{{'FEE'|translate}}</label>
+          </div>
+          <div class="md-form mb-0">
+            <input type="text" id="board" class="form-control" ng-model="batch.board">
+            <label for="board" class="active">{{'BOARD'|translate}}</label>
+          </div>
+          <br>
+          <div class="mb-0">
+            <label for="batch_start_time" style="color:#757575">{{'BATCH_START_TIME'|translate}}</label>
+            <input type="time" id="batch_start_time" class="form-control" ng-model="batch.batch_start_time">
+          </div>
+          <br>
+          <div class="mb-0">
+            <label for="batch_end_time" style="color:#757575">{{'BATCH_END_TIME'|translate}}</label>
+            <input type="time" id="batch_end_time" class="form-control" ng-model="batch.batch_end_time">
+          </div>
+          <br>
+
+          <button class="btn btn-primary" ng-click="edit(batch.$id)">{{'UPDATE'|translate}}</button>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+</div>
